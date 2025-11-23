@@ -1,0 +1,6 @@
+2025-11-20 00:25:44.354192+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "SONG" not found (this database is empty); SQL statement:
+select count(*) from song s1_0 [42104-224]
+2025-11-20 00:28:58.831552+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "SONG" not found (this database is empty); SQL statement:
+select count(*) from song s1_0 [42104-224]

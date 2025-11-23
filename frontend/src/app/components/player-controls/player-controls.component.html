@@ -1,0 +1,35 @@
+<div class="glass-panel p-6 fixed bottom-0 left-0 right-0 z-50 m-4">
+  <div class="flex flex-col items-center gap-4">
+    <!-- Progress Bar -->
+    <div class="w-full flex items-center gap-3 text-xs text-gray-400">
+      <span>{{ formatTime((audioService.currentTime$ | async) || 0) }}</span>
+      <input 
+        type="range" 
+        [max]="(audioService.duration$ | async) || 0"
+        [value]="(audioService.currentTime$ | async) || 0"
+        (input)="onSeek($event)"
+        class="w-full h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-secondary"
+      >
+      <span>{{ formatTime((audioService.duration$ | async) || 0) }}</span>
+    </div>
+
+    <!-- Controls -->
+    <div class="flex items-center gap-6">
+      <button class="text-gray-400 hover:text-white transition">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="19 20 9 12 19 4 19 20"></polygon><line x1="5" y1="19" x2="5" y2="5"></line></svg>
+      </button>
+      
+      <button 
+        (click)="togglePlay()"
+        class="w-12 h-12 flex items-center justify-center rounded-full bg-primary hover:bg-violet-600 text-white shadow-lg shadow-violet-500/30 transition transform hover:scale-105"
+      >
+        <svg *ngIf="!(audioService.isPlaying$ | async)" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        <svg *ngIf="audioService.isPlaying$ | async" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+      </button>
+      
+      <button class="text-gray-400 hover:text-white transition">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 4 15 12 5 20 5 4"></polygon><line x1="19" y1="5" x2="19" y2="19"></line></svg>
+      </button>
+    </div>
+  </div>
+</div>

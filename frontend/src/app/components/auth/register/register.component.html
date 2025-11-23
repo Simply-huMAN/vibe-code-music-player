@@ -1,0 +1,38 @@
+<div class="min-h-[80vh] flex items-center justify-center">
+    <div class="glass-panel p-8 w-full max-w-md">
+        <h2 class="text-3xl font-bold mb-6 text-center">Create Account</h2>
+
+        <div *ngIf="error" class="bg-red-500/20 text-red-200 p-3 rounded-lg mb-4 text-sm border border-red-500/30">
+            {{ error }}
+        </div>
+
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm text-gray-400 mb-1">Username</label>
+                <input [(ngModel)]="username" type="text"
+                    class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition">
+            </div>
+
+            <div>
+                <label class="block text-sm text-gray-400 mb-1">Email</label>
+                <input [(ngModel)]="email" type="email"
+                    class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition">
+            </div>
+
+            <div>
+                <label class="block text-sm text-gray-400 mb-1">Password</label>
+                <input [(ngModel)]="password" type="password"
+                    class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition">
+            </div>
+
+            <button (click)="register()"
+                class="w-full bg-gradient-to-r from-primary to-secondary py-3 rounded-lg font-bold hover:opacity-90 transition mt-4">
+                Sign Up
+            </button>
+
+            <p class="text-center text-sm text-gray-400 mt-4">
+                Already have an account? <a routerLink="/login" class="text-white hover:underline">Log in</a>
+            </p>
+        </div>
+    </div>
+</div>
